@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "jagpalkooner/cw2-server:1.0"
+        HOST_PORT = "8081" // Change to an available port
+        CONTAINER_PORT = "8080"
     }
 
     stages {
@@ -21,9 +23,9 @@ pipeline {
         stage('Test Docker Container') {
             steps {
                 sh '''
-                docker run -d -p 8080:8080 $DOCKER_IMAGE
+                docker run -d -p $HOST_PORT:$CONTAINER_PORT $DOCKER_IMAGE
                 sleep 5
-                curl http://localhost:8080
+                curl http://localhost:$HOST_PORT
                 docker stop $(docker ps -q)
                 '''
             }
