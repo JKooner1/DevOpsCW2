@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "<your_dockerhub_username>/cw2-server:1.0"
+        DOCKER_IMAGE = "jagpalkooner/cw2-server:1.0"
     }
 
     stages {
