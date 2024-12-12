@@ -37,11 +37,11 @@ pipeline {
             steps {
                 sshagent(credentials: ['k8s-ssh-credentials-id']) {
                     sh '''
-                    export PATH=$PATH:/snap/bin
-                    kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0
+                    ssh -o StrictHostKeyChecking=no ubuntu@<production-server-ip> "export PATH=$PATH:/snap/bin && kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0"
                     '''
                 }
             }
         }
     }
 }
+
