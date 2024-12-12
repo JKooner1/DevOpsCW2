@@ -35,9 +35,9 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
-                sshagent (credentials: ['k8s-ssh-credentials-id']) {
+                sshagent(credentials: ['k8s-ssh-credentials-id']) {
                     sh '''
-                    kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0
+                    /snap/bin/kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0
                     '''
                 }
             }
