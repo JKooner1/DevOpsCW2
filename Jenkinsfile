@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['k8s-ssh-credentials-id']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@34.207.119.224 "/usr/local/bin/kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0"
+                    ssh -o StrictHostKeyChecking=no ubuntu@44.221.203.136 "/usr/local/bin/kubectl set image deployment/cw2-server cw2-server=jagpalkooner/cw2-server:1.0"
                     '''
                 }
             }
