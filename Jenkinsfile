@@ -15,7 +15,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image"
-                sh 'docker build -t jagpalkooner/cw2-server:1.0 .'
+                sh 'docker build --no-cache -t jagpalkooner/cw2-server:1.0 .'
             }
         }
         stage('Test Docker Image') {
